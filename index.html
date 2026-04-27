@@ -495,6 +495,7 @@
             <li><a href="#insights">Insights</a></li>
             <li><a href="#academic">Academic</a></li>
             <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#future-scope">Future Scope</a></li>
             <li><a href="#resources">Resources</a></li>
             <li><a href="#team">Team</a></li>
         </ul>
@@ -524,7 +525,12 @@
     </section>
 
     <section id="insights">
-        <h2 class="section-title">Key Insights</h2>
+        <h2 class="section-title">Project Results & Key Insights</h2>
+        
+        <div class="impact-highlight" style="margin-top: 0; margin-bottom: 3rem; background: linear-gradient(145deg, rgba(157, 78, 221, 0.1), rgba(60, 163, 240, 0.1)); border-left-color: var(--accent-purple);">
+            <h2><i class="fa-solid fa-trophy" style="margin-right: 10px; color: var(--accent-purple);"></i>Project Results Summary</h2>
+            <p>The implementation of this analytical framework resulted in the clear visibility of core revenue streams and demographic behaviors. By pinpointing bottlenecks in the supply chain and validating a 92% successful fulfillment rate, stakeholders can now confidently pivot marketing budgets toward high-performing channels (like Myntra) and core demographics (women's apparel), reducing Customer Acquisition Cost (CAC) and drastically optimizing inventory turnover.</p>
+        </div>
         <div class="insights-grid">
             
             <div class="insight-card">
@@ -637,6 +643,44 @@
     <section id="architecture">
         <h2 class="section-title">Data Architecture & Backend</h2>
         
+        <h3 style="color: var(--accent-blue); margin: 2rem 0 1rem 0;"><i class="fa-solid fa-sitemap"></i> System Architecture & Data Flow</h3>
+        <p style="color: var(--text-muted); text-align: center; margin-bottom: 2rem;">Visual representation of the data lifecycle from raw extraction to Power BI visualization.</p>
+        
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 3rem;">
+            
+            <div style="flex: 1; min-width: 300px; background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border); text-align: center;">
+                <h4 style="color: white; margin-bottom: 1rem;">System Architecture</h4>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 5px; margin-top: 1.5rem;">
+                    <div class="diagram-box" style="width: 85%; padding: 1rem;"><i class="fa-solid fa-file-csv" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br>Raw Data Sources<br><small style="font-size: 0.75rem; color: #b3b3b3;">CSV / Excel Files</small></div>
+                    <i class="fa-solid fa-arrow-down arrow" style="margin: 0;"></i>
+                    <div class="diagram-box" style="width: 85%; padding: 1rem; border-color: var(--accent-purple);"><i class="fa-brands fa-python" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br>Python / Pandas<br><small style="font-size: 0.75rem; color: #b3b3b3;">Data Cleaning & Transformation</small></div>
+                    <i class="fa-solid fa-arrow-down arrow" style="margin: 0;"></i>
+                    <div class="diagram-box" style="width: 85%; padding: 1rem;"><i class="fa-solid fa-database" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br>SQL Server<br><small style="font-size: 0.75rem; color: #b3b3b3;">Central Data Warehouse</small></div>
+                    <i class="fa-solid fa-arrow-down arrow" style="margin: 0;"></i>
+                    <div class="diagram-box" style="width: 85%; padding: 1rem; border-color: var(--accent-purple);"><i class="fa-solid fa-chart-pie" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br>Power BI<br><small style="font-size: 0.75rem; color: #b3b3b3;">Interactive Dashboard</small></div>
+                </div>
+            </div>
+
+            <div style="flex: 1; min-width: 300px; background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--card-border); text-align: center;">
+                <h4 style="color: white; margin-bottom: 1rem;">Level 1 Data Flow Diagram</h4>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 1.5rem;">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 10px;">
+                        <div class="diagram-box" style="border-radius: 50%; padding: 1rem; min-width: 90px;"><i class="fa-solid fa-store" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br><small>E-comm</small></div>
+                        <div style="color: var(--accent-blue); font-size: 0.75rem; text-align: center; font-weight: bold;">Raw Sales<br><i class="fa-solid fa-arrow-right"></i></div>
+                        <div class="diagram-box" style="padding: 1rem; min-width: 90px;"><i class="fa-solid fa-gears" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br><small>ETL Pipeline</small></div>
+                    </div>
+                    <div style="color: var(--accent-blue); font-size: 0.75rem; text-align: center; font-weight: bold; margin: 5px 0;">Cleaned Data <i class="fa-solid fa-arrow-down"></i></div>
+                    <div class="diagram-box" style="border-width: 3px; border-style: double; width: 70%; padding: 1rem;"><i class="fa-solid fa-server" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br>SQL Database</div>
+                    <div style="color: var(--accent-blue); font-size: 0.75rem; text-align: center; font-weight: bold; margin: 5px 0;"><i class="fa-solid fa-arrow-down"></i> SQL Queries</div>
+                    <div style="display: flex; align-items: center; justify-content: center; width: 100%; gap: 10px;">
+                        <div class="diagram-box" style="padding: 1rem; min-width: 90px; border-color: var(--accent-purple);"><i class="fa-solid fa-chart-line" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br><small>BI Dashboard</small></div>
+                        <div style="color: var(--accent-blue); font-size: 0.75rem; text-align: center; font-weight: bold;"><i class="fa-solid fa-arrow-left"></i><br>Insights</div>
+                        <div class="diagram-box" style="border-radius: 50%; padding: 1rem; min-width: 90px; border-color: var(--accent-purple);"><i class="fa-solid fa-user-tie" style="font-size: 1.5rem; margin-bottom: 5px;"></i><br><small>Business User</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h3 style="color: var(--accent-blue); margin: 2rem 0 1rem 0;">Database Schema (Entity-Relationship Diagram)</h3>
         <div class="architecture-diagram">
             <div style="margin: 2rem 0;">
@@ -780,6 +824,54 @@ GROUP BY o.OrderStatus
 ORDER BY Order_Count DESC;</code>
         </div>
 
+        <h3 style="color: var(--accent-blue); margin: 3rem 0 1rem 0;"><i class="fa-solid fa-code"></i> Data Processing & BI Logic (Technical Examples)</h3>
+        
+        <div class="code-block">
+            <span class="code-label">🐍 Example 1: Python (Pandas) Data Cleaning Script</span>
+            <code># Initial data extraction and transformation for Fit & Fab dataset
+import pandas as pd
+import numpy as np
+
+# Load raw sales data
+df = pd.read_csv('raw_sales_2023.csv')
+
+# 1. Handle missing values in critical columns
+df['CustomerID'].fillna('GUEST_USER', inplace=True)
+df['Amount'].fillna(df['Amount'].mean(), inplace=True)
+
+# 2. Normalize categorical data (e.g., standardizing text case)
+df['Channel'] = df['Channel'].str.upper()
+df['Order_Status'] = df['Order_Status'].str.title()
+
+# 3. Feature Engineering: Calculate Profit Margin dynamically
+df['Profit_Margin'] = ((df['Amount'] - df['Cost_Price']) / df['Amount']) * 100
+
+# Export transformed dataset to SQL-ready CSV
+df.to_csv('cleaned_fit_fab_data.csv', index=False)
+print("Data transformation complete. Ready for SQL Load.")</code>
+        </div>
+
+        <div class="code-block">
+            <span class="code-label">📈 Example 2: Power BI (DAX) KPI Calculation</span>
+            <code>// DAX Measure calculating Year-over-Year (YoY) Sales Growth for Dashboard KPI
+YoY_Sales_Growth % = 
+VAR CurrentYearSales = SUM('Sales_Cleaned'[Amount])
+
+VAR PreviousYearSales = 
+    CALCULATE(
+        SUM('Sales_Cleaned'[Amount]), 
+        SAMEPERIODLASTYEAR('Calendar'[Date])
+    )
+
+RETURN
+// Safe division to prevent divide-by-zero errors
+DIVIDE(
+    (CurrentYearSales - PreviousYearSales), 
+    PreviousYearSales, 
+    0
+)</code>
+        </div>
+
         <h3 style="color: var(--accent-blue); margin: 2rem 0 1rem 0;">Backend Performance Optimization</h3>
         <div class="academic-grid">
             <div class="academic-card">
@@ -855,6 +947,32 @@ ORDER BY Order_Count DESC;</code>
         </div>
     </section>
 
+    <section id="future-scope">
+        <h2 class="section-title">Future Scope & Enhancements</h2>
+        <p style="text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 3rem auto;">While the current iteration of the Fit & Fab dashboard delivers comprehensive historical analysis, the architecture has been designed to support advanced scalability and future technical integrations.</p>
+        
+        <div class="academic-grid">
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-brain"></i> Predictive Analytics (Machine Learning)</h4>
+                <p>Future iterations will integrate ML models (like ARIMA or Prophet via Python) to forecast future sales trends, predict seasonal inventory requirements automatically, and identify potential customer churn before it impacts revenue.</p>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-mobile-screen"></i> Mobile Application Integration</h4>
+                <p>Developing a dedicated, secure mobile application connected to the SQL backend, allowing warehouse managers and regional directors to access real-time dashboard metrics and emergency KPI alerts on the go.</p>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-users-rays"></i> Advanced RFM Segmentation</h4>
+                <p>Implementing dynamic Recency, Frequency, and Monetary (RFM) analysis clustering. This will allow the marketing team to generate highly targeted micro-segments for personalized ad campaigns and automated loyalty rewards.</p>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-rotate"></i> Real-time Data Streaming Architecture</h4>
+                <p>Upgrading the current daily batch ETL process to a real-time data streaming pipeline using tools like Apache Kafka or Azure Stream Analytics, providing stakeholders with down-to-the-minute sales and inventory updates.</p>
+            </div>
+        </div>
+    </section>
     <section>
         <h2 class="section-title">Project Timeline</h2>
         <div class="timeline">
@@ -952,10 +1070,9 @@ ORDER BY Order_Count DESC;</code>
                     const user = document.getElementById('adminUser').value;
                     const pass = document.getElementById('adminPass').value;
                     
-                    // The secret credentials only you and your team know
+                    // Secret credentials
                     if(user === "admin_ritvik" && pass === "bca2024") {
                         alert("Authentication Successful. Establishing secure connection...");
-                        // Redirects to the secret database page
                         window.location.href = "database-view.html"; 
                     } else {
                         document.getElementById('loginError').style.display = "block";
@@ -972,10 +1089,10 @@ ORDER BY Order_Count DESC;</code>
     <section id="resources">
         <h2 class="section-title">Project Documentation</h2>
         <div class="resource-grid">
-            <a href="#" class="resource-btn"><i class="fa-solid fa-file-pdf" style="color: #ff4757;"></i> Project Synopsis</a>
-            <a href="#" class="resource-btn"><i class="fa-solid fa-file-lines" style="color: #2ed573;"></i> SRS Document</a>
-            <a href="#" class="resource-btn"><i class="fa-solid fa-file-csv" style="color: #ffa502;"></i> Raw Dataset (CSV)</a>
-            <a href="#" class="resource-btn"><i class="fa-solid fa-file-powerpoint" style="color: #ff6b81;"></i> Final PPT Deck</a>
+            <a href="Fit_Fab_Synopsis.pdf" class="resource-btn" target="_blank"><i class="fa-solid fa-file-pdf" style="color: #ff4757;"></i> Project Synopsis</a>
+            <a href="Fit_Fab_SRS.pdf" class="resource-btn" target="_blank"><i class="fa-solid fa-file-lines" style="color: #2ed573;"></i> SRS Document</a>
+            <a href="cleaned_fit_fab_data.csv" class="resource-btn" target="_blank"><i class="fa-solid fa-file-csv" style="color: #ffa502;"></i> Raw Dataset (CSV)</a>
+            <a href="Fit_Fab_Presentation.pdf" class="resource-btn" target="_blank"><i class="fa-solid fa-file-powerpoint" style="color: #ff6b81;"></i> Final PPT Deck</a>
         </div>
     </section>
 
@@ -991,9 +1108,8 @@ ORDER BY Order_Count DESC;</code>
                 <span class="team-role">Web Developer & Lead Analyst</span>
                 <p class="team-desc">Architected the portfolio platform, developed the interactive UI/UX, and led the primary data visualization efforts using Power BI.</p>
                 <div class="team-socials">
-                    <a href="https://github.com/ritvik4548" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://github.com/ritvik4548" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:ritvik4548@gmail.com" title="Email Ritvik"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
 
@@ -1003,9 +1119,8 @@ ORDER BY Order_Count DESC;</code>
                 <span class="team-role">Data Analyst & BI Developer</span>
                 <p class="team-desc">Spearheaded exploratory data analysis, handled complex dataset cleaning, and developed key performance indicator (KPI) tracking metrics.</p>
                 <div class="team-socials">
-                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://GitHub.com/Harshita125-prog" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:Harshita.bhatia15@gmail.com" title="Email Harshita"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
 
@@ -1015,9 +1130,8 @@ ORDER BY Order_Count DESC;</code>
                 <span class="team-role">Database Administrator</span>
                 <p class="team-desc">Designed the relational database schema, optimized SQL queries for performance, and managed the ETL pipelines.</p>
                 <div class="team-socials">
-                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://GitHub.com/riyyprajapati-svg/power-BI_Dashboard_Project" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:Riyyprajapati@gmail.com" title="Email Riya"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
 
@@ -1027,12 +1141,11 @@ ORDER BY Order_Count DESC;</code>
                 <span class="team-role">Project Manager & Documentation</span>
                 <p class="team-desc">Managed project timelines, structured the SRS documentation, and formulated the strategic business recommendations.</p>
                 <div class="team-socials">
-                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="https://GitHub.com/mamta8383" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:Mamtadas838305@gmail.com" title="Email Mamta"><i class="fa-solid fa-envelope"></i></a>
                 </div>
             </div>
-
+            
         </div>
     </section>
 
