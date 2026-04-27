@@ -938,12 +938,30 @@ ORDER BY Order_Count DESC;</code>
 
             <div class="admin-form">
                 <h3 style="color: white; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;"><i class="fa-solid fa-shield-halved"></i> Local Database Access</h3>
-                <form onsubmit="event.preventDefault(); alert('Database connected successfully. Awaiting query execution...');">
-                    <input type="text" placeholder="Admin Username (e.g., sysadmin_bca6)" required>
-                    <input type="password" placeholder="Secure Password" required>
-                    <button type="submit" class="admin-btn">Connect to Local Server</button>
+                
+                <form id="loginForm">
+                    <input type="text" id="adminUser" placeholder="Admin Username (Hint: admin_ritvik)" required>
+                    <input type="password" id="adminPass" placeholder="Secure Password (Hint: bca2024)" required>
+                    <button type="button" class="admin-btn" onclick="checkLogin()">Connect to Local Server</button>
                 </form>
+                <p id="loginError" style="color: #ff4757; margin-top: 10px; display: none; font-size: 0.9rem;"><i class="fa-solid fa-triangle-exclamation"></i> Invalid Admin Credentials</p>
             </div>
+
+            <script>
+                function checkLogin() {
+                    const user = document.getElementById('adminUser').value;
+                    const pass = document.getElementById('adminPass').value;
+                    
+                    // The secret credentials only you and your team know
+                    if(user === "admin_ritvik" && pass === "bca2024") {
+                        alert("Authentication Successful. Establishing secure connection...");
+                        // Redirects to the secret database page
+                        window.location.href = "database-view.html"; 
+                    } else {
+                        document.getElementById('loginError').style.display = "block";
+                    }
+                }
+            </script>
 
             <div style="margin-top: 2.5rem; color: #475569; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">
                 <i class="fa-solid fa-lock" style="margin-right: 8px;"></i> 256-Bit SSL Encrypted Connection
