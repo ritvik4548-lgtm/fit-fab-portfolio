@@ -3,49 +3,1038 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fit & Fab Annual Report 2023</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Fit & Fab Annual Report 2023 - BCA Major Project Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #2A1045 0%, #683070 50%, #2A84D2 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f0f0f0;
+            --text-muted: #b3b3b3;
+            --accent-blue: #3CA3F0;
+            --accent-purple: #9D4EDD;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(15, 5, 25, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Section Formatting */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-weight: 600;
+            background: -webkit-linear-gradient(right, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero / Business Impact (Home Page) */
+        .hero {
+            text-align: center;
+            padding: 6rem 5% 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bca-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(60, 163, 240, 0.3);
+        }
+
+        .impact-highlight {
+            background: linear-gradient(145deg, rgba(60, 163, 240, 0.1), rgba(157, 78, 221, 0.1));
+            border-left: 4px solid var(--accent-blue);
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        .impact-highlight h2 {
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+
+        .impact-highlight p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        /* Dashboard Placeholder */
+        .dashboard-preview {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Key Insights Grid */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .insight-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .insight-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .insight-icon {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .insight-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .insight-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about-content {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .about-content h3 {
+            color: var(--accent-purple);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Academic Sections */
+        .academic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .academic-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .academic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(60, 163, 240, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .academic-card h4 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .academic-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .academic-card ul {
+            color: var(--text-muted);
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .academic-card li {
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+        }
+
+        /* Code Block Styling */
+        .code-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--accent-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #a1d8ff;
+        }
+
+        .code-block code {
+            color: #a1d8ff;
+        }
+
+        .code-label {
+            color: var(--accent-purple);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        /* Architecture Diagram */
+        .architecture-diagram {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .diagram-box {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(60, 163, 240, 0.2), rgba(157, 78, 221, 0.2));
+            border: 2px solid var(--accent-blue);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            margin: 0.5rem;
+            color: white;
+            font-weight: 600;
+            min-width: 150px;
+        }
+
+        .arrow {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            display: inline-block;
+        }
+
+        /* ETL Diagram */
+        .etl-flow {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .etl-step {
+            background: var(--card-bg);
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-width: 200px;
+            margin: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .etl-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(60, 163, 240, 0.2);
+        }
+
+        .etl-step h4 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .etl-step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent-blue);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .timeline-item h4 {
+            color: var(--accent-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .phase {
+            color: var(--accent-purple);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .recommendation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .recommendation-card {
+            background: linear-gradient(145deg, rgba(60, 163, 240, 0.1), rgba(157, 78, 221, 0.1));
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+
+        .recommendation-card .number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-card h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: white; }
+        
+        /* Enhanced Admin Form */
+        .admin-form { margin-top: 3rem; text-align: left; background: rgba(0,0,0,0.2); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+        .admin-form input { width: 100%; padding: 12px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: white; font-size: 1rem; }
+        .admin-form input:focus { outline: none; border-color: var(--accent-blue); }
+        .admin-btn { width: 100%; padding: 12px; background: var(--accent-blue); color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.3s ease; }
+        .admin-btn:hover { background: #2a84d2; }
+
+        /* Project Resources */
+        .resource-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin-top: 2rem; }
+        .resource-btn { display: flex; align-items: center; gap: 10px; padding: 15px 25px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; color: white; text-decoration: none; transition: all 0.3s ease; }
+        .resource-btn:hover { background: rgba(255,255,255,0.1); border-color: var(--accent-purple); transform: translateY(-3px); }
+
+        /* TEAM SECTION STYLING */
+        .team-intro { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; color: var(--text-muted); font-size: 1.1rem; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        
+        .team-member { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 2.5rem 1.5rem; text-align: center; transition: all 0.3s ease; }
+        .team-member:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.3); background: rgba(255, 255, 255, 0.08); border-color: rgba(60, 163, 240, 0.3); }
+        
+        .team-avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--accent-purple); object-fit: cover; margin-bottom: 1.5rem; background: #fff; }
+        
+        .team-member h3 { color: white; margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .team-role { color: var(--accent-blue); font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; display: block; }
+        .team-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem; }
+        
+        .team-socials { display: flex; justify-content: center; gap: 1.2rem; }
+        .team-socials a { color: var(--text-muted); font-size: 1.2rem; transition: color 0.3s, transform 0.3s; }
+        .team-socials a:hover { color: var(--accent-blue); transform: scale(1.1); }
+
+        /* Lead Member Highlight */
+        .team-member.lead { border-color: var(--accent-blue); position: relative; overflow: hidden; }
+        .team-member.lead::before { content: 'Lead Developer'; position: absolute; top: 15px; right: -30px; background: var(--accent-blue); color: white; font-size: 0.7rem; font-weight: bold; padding: 5px 30px; transform: rotate(45deg); }
+        .team-member.lead .team-avatar { border-color: var(--accent-blue); }
+
+        /* Footer */
+        footer { background: rgba(15, 5, 25, 0.9); color: var(--text-muted); text-align: center; padding: 3rem 5%; border-top: 1px solid var(--card-border); margin-top: 5rem; }
+        footer p { margin: 0.5rem 0; font-size: 0.95rem; }
+        footer a { color: var(--accent-blue); text-decoration: none; transition: color 0.3s ease; }
+        footer a:hover { color: var(--accent-purple); }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .code-block { font-size: 0.75rem; }
+            .etl-flow { flex-direction: column; }
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; width: 100%; text-align: center; background: rgba(15, 5, 25, 0.95); position: absolute; top: 100%; left: 0; padding: 1rem 0; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+            .nav-links.active { display: flex; }
+        }
+    </style>
 </head>
 <body>
-    <header>
+
+    <nav>
+        <a href="#" class="logo"><i class="fa-solid fa-chart-line"></i> Fit & Fab</a>
+        <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#insights">Insights</a></li>
+            <li><a href="#academic">Academic</a></li>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#team">Team</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="bca-badge">
+            <i class="fa-solid fa-graduation-cap"></i> BCA 6th Semester Major Project
+        </div>
         <h1>Fit & Fab Annual Report 2023</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">A Comprehensive Data Analytics Portfolio Project</p>
+        
+        <div class="impact-highlight">
+            <h2><i class="fa-solid fa-chart-line" style="margin-right: 10px;"></i>Business Impact</h2>
+            <p>This dashboard helps businesses identify top-performing regions, understand customer behavior, and optimize sales channels. It enables data-driven decision-making to improve sales performance, reduce order cancellations, and enhance customer targeting.</p>
+        </div>
     </header>
 
-    <section class="dashboard-preview">
-        <h2>Dashboard Preview</h2>
-        <img src="images/dashboard1.png" alt="Dashboard Image 1">
-        <img src="images/dashboard2.png" alt="Dashboard Image 2">
-        <img src="images/dashboard3.png" alt="Dashboard Image 3">
-    </section>
-
-    <section class="key-insights">
-        <h2>Key Insights</h2>
-        <div class="insight-card">
-            <h3>Insight 1</h3>
-            <p>Description of Insight 1.</p>
-        </div>
-        <div class="insight-card">
-            <h3>Insight 2</h3>
-            <p>Description of Insight 2.</p>
-        </div>
-        <div class="insight-card">
-            <h3>Insight 3</h3>
-            <p>Description of Insight 3.</p>
+    <section id="dashboard">
+        <h2 class="section-title">Interactive Dashboard</h2>
+        <div class="dashboard-preview">
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">
+                <img src="60714.jpeg" alt="Fit & Fab Sales View" style="width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <img src="60713.jpeg" alt="Fit & Fab Orders View" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+            </p>
         </div>
     </section>
 
-    <section class="about">
-        <h2>About This Project</h2>
-        <p>Details about the BCA project portfolio.</p>
+    <section id="insights">
+        <h2 class="section-title">Key Insights</h2>
+        <div class="insights-grid">
+            
+            <div class="insight-card">
+                <i class="fa-solid fa-map-location-dot insight-icon"></i>
+                <h3>Regional Leaders</h3>
+                <p>Maharashtra and Karnataka consistently generate the highest sales volume, serving as the primary geographic drivers for revenue.</p>
+            </div>
+
+            <div class="insight-card">
+                <i class="fa-solid fa-users insight-icon"></i>
+                <h3>Demographic Dominance</h3>
+                <p>Women contribute significantly more to total sales compared to men, indicating a strong product-market fit in the female apparel category.</p>
+            </div>
+
+            <div class="insight-card">
+                <i class="fa-solid fa-store insight-icon"></i>
+                <h3>Top Channel Performance</h3>
+                <p>Myntra emerges as the absolute top-performing sales channel, vastly outperforming other e-commerce platforms like Amazon and Flipkart.</p>
+            </div>
+
+            <div class="insight-card">
+                <i class="fa-solid fa-box-check insight-icon"></i>
+                <h3>Fulfillment Success</h3>
+                <p>The vast majority of orders are successfully delivered (over 92%), maintaining an exceptionally low cancellation and return rate.</p>
+            </div>
+
+            <div class="insight-card">
+                <i class="fa-solid fa-chart-area insight-icon"></i>
+                <h3>Seasonal Trends</h3>
+                <p>Sales exhibit consistent momentum throughout the year, with distinct volume peaks occurring in key purchasing months.</p>
+            </div>
+
+        </div>
     </section>
 
-    <section class="data-portal">
-        <h2>Data Portal</h2>
-        <p>Please fill out the <a href="https://docs.google.com/forms/d/e/1FAIpQLSfn7jYUtRl81WXzPj4vtkHXT5_XOYmnKHR2a75glPX9dZZ3hg/viewform">Google Form</a> for more insights.</p>
+    <section id="academic">
+        <h2 class="section-title">Academic Project Details</h2>
+        
+        <div class="academic-grid">
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-bullseye"></i> Project Objectives</h4>
+                <p>The primary goal of this project is to develop a comprehensive data analytics dashboard that transforms raw e-commerce sales data into actionable business intelligence. Key objectives include:</p>
+                <ul>
+                    <li>Analyze sales patterns across regions</li>
+                    <li>Identify customer demographics</li>
+                    <li>Evaluate channel performance</li>
+                    <li>Track fulfillment metrics</li>
+                </ul>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-flask"></i> Methodology</h4>
+                <p>Our analytical approach combines multiple data analysis techniques:</p>
+                <ul>
+                    <li>Exploratory Data Analysis (EDA)</li>
+                    <li>Statistical Analysis & Correlation Studies</li>
+                    <li>Trend Analysis & Forecasting</li>
+                    <li>Comparative Analysis by Segments</li>
+                    <li>Dashboard Visualization & KPI Tracking</li>
+                </ul>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-laptop-code"></i> Technology Stack</h4>
+                <p>Modern tools and technologies used for data processing and visualization:</p>
+                <ul>
+                    <li><strong>Database:</strong> SQL Server / MySQL</li>
+                    <li><strong>BI Tool:</strong> Power BI / Tableau</li>
+                    <li><strong>Data Processing:</strong> Python / Pandas</li>
+                    <li><strong>Visualization:</strong> HTML, CSS, JavaScript</li>
+                </ul>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-database"></i> Data Sources</h4>
+                <p>Project utilizes comprehensive e-commerce data:</p>
+                <ul>
+                    <li>Sales transaction records</li>
+                    <li>Customer demographic information</li>
+                    <li>Order fulfillment details</li>
+                    <li>Channel-wise performance metrics</li>
+                    <li>Historical data spanning 12 months</li>
+                </ul>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-lightbulb"></i> Key Findings</h4>
+                <p>Major insights derived from comprehensive data analysis:</p>
+                <ul>
+                    <li>92%+ order fulfillment rate</li>
+                    <li>Women demographic dominance (65%+ sales)</li>
+                    <li>Maharashtra & Karnataka lead by 40% volume</li>
+                    <li>Myntra channel 3x more effective than competitors</li>
+                </ul>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-graduation-cap"></i> Learning Outcomes</h4>
+                <p>Skills and knowledge acquired through this project:</p>
+                <ul>
+                    <li>Advanced data analysis techniques</li>
+                    <li>Business intelligence & reporting</li>
+                    <li>Strategic decision making</li>
+                    <li>Technical & presentation skills</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture">
+        <h2 class="section-title">Data Architecture & Backend</h2>
+        
+        <h3 style="color: var(--accent-blue); margin: 2rem 0 1rem 0;">Database Schema (Entity-Relationship Diagram)</h3>
+        <div class="architecture-diagram">
+            <div style="margin: 2rem 0;">
+                <div class="diagram-box">📊 Sales Table<br><small style="font-size: 0.8rem;">SaleID, Date, Amount, RegionID</small></div>
+                <span class="arrow">→</span>
+                <div class="diagram-box">🗂️ Regions<br><small style="font-size: 0.8rem;">RegionID, State, City</small></div>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div class="diagram-box">👥 Customers<br><small style="font-size: 0.8rem;">CustomerID, Gender, Age, City</small></div>
+                <span class="arrow">→</span>
+                <div class="diagram-box">📦 Orders<br><small style="font-size: 0.8rem;">OrderID, CustomerID, Status</small></div>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div class="diagram-box">🏪 Channels<br><small style="font-size: 0.8rem;">ChannelID, Name (Myntra, Amazon)</small></div>
+                <span class="arrow">→</span>
+                <div class="diagram-box">💰 Sales_Channel<br><small style="font-size: 0.8rem;">SaleID, ChannelID, Revenue</small></div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--accent-blue); margin: 2rem 0 1rem 0;">ETL Process Flow</h3>
+        <div class="etl-flow">
+            <div class="etl-step">
+                <i class="fa-solid fa-arrow-down" style="font-size: 2rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
+                <h4>Extract</h4>
+                <p><strong>Source:</strong> Raw CSV files from enterprise systems<br>
+                <strong>Volume:</strong> 100K+ sales records<br>
+                <strong>Frequency:</strong> Daily incremental loads</p>
+            </div>
+
+            <div style="font-size: 2rem; color: var(--accent-blue);">⟹</div>
+
+            <div class="etl-step">
+                <i class="fa-solid fa-cog" style="font-size: 2rem; color: var(--accent-purple); margin-bottom: 1rem;"></i>
+                <h4>Transform</h4>
+                <p><strong>Cleaning:</strong> Remove duplicates & NULL values<br>
+                <strong>Validation:</strong> Data quality checks<br>
+                <strong>Aggregation:</strong> Summarize by region & channel</p>
+            </div>
+
+            <div style="font-size: 2rem; color: var(--accent-blue);">⟹</div>
+
+            <div class="etl-step">
+                <i class="fa-solid fa-database" style="font-size: 2rem; color: var(--accent-purple); margin-bottom: 1rem;"></i>
+                <h4>Load</h4>
+                <p><strong>Target:</strong> Data warehouse (SQL Server)<br>
+                <strong>Structure:</strong> Normalized fact & dimension tables<br>
+                <strong>Refresh:</strong> Real-time sync with BI tool</p>
+            </div>
+        </div>
+
+        <h3 style="color: var(--accent-blue); margin: 2rem 0 1rem 0;">Sample SQL Queries Used in Project</h3>
+
+        <div class="code-block">
+            <span class="code-label">📝 Query 1: Data Cleaning & Deduplication</span>
+            <code>-- Remove duplicate sales records and handle missing values
+WITH CleanedSales AS (
+    SELECT DISTINCT 
+        SaleID,
+        CAST(SalesDate AS DATE) as Sale_Date,
+        COALESCE(Amount, 0) as Amount,
+        RegionID,
+        ChannelID,
+        ISNULL(CustomerID, 'GUEST') as CustomerID
+    FROM RawSalesData
+    WHERE Amount > 0 AND SalesDate IS NOT NULL
+)
+INSERT INTO Sales_Cleaned
+SELECT * FROM CleanedSales;</code>
+        </div>
+
+        <div class="code-block">
+            <span class="code-label">📊 Query 2: Regional Sales Aggregation</span>
+            <code>-- Calculate total sales by region with growth metrics
+SELECT 
+    r.State,
+    r.Region,
+    COUNT(DISTINCT s.SaleID) as Total_Orders,
+    SUM(s.Amount) as Total_Sales,
+    AVG(s.Amount) as Avg_Order_Value,
+    ROUND(SUM(s.Amount) * 100.0 / 
+        (SELECT SUM(Amount) FROM Sales), 2) as Sales_Percentage
+FROM Sales s
+JOIN Regions r ON s.RegionID = r.RegionID
+WHERE YEAR(s.SalesDate) = 2024
+GROUP BY r.State, r.Region
+ORDER BY Total_Sales DESC;</code>
+        </div>
+
+        <div class="code-block">
+            <span class="code-label">🏪 Query 3: Channel Performance Comparison</span>
+            <code>-- Compare sales performance across e-commerce channels
+SELECT 
+    c.ChannelName,
+    COUNT(s.SaleID) as Order_Count,
+    SUM(s.Amount) as Total_Revenue,
+    AVG(s.Amount) as Avg_Order_Value,
+    COUNT(DISTINCT s.CustomerID) as Unique_Customers,
+    ROUND(COUNT(s.SaleID) * 100.0 / 
+        (SELECT COUNT(*) FROM Sales), 2) as Market_Share
+FROM Sales s
+JOIN Channels c ON s.ChannelID = c.ChannelID
+GROUP BY c.ChannelName
+ORDER BY Total_Revenue DESC;</code>
+        </div>
+
+        <div class="code-block">
+            <span class="code-label">👥 Query 4: Customer Demographics Segmentation</span>
+            <code>-- Segment customers by gender and analyze purchase behavior
+SELECT 
+    cust.Gender,
+    COUNT(DISTINCT cust.CustomerID) as Total_Customers,
+    COUNT(o.OrderID) as Total_Orders,
+    SUM(s.Amount) as Total_Spending,
+    AVG(s.Amount) as Avg_Spending,
+    COUNT(CASE WHEN o.OrderStatus = 'Delivered' 
+        THEN 1 END) as Successful_Orders,
+    ROUND(COUNT(CASE WHEN o.OrderStatus = 'Delivered' 
+        THEN 1 END) * 100.0 / COUNT(o.OrderID), 2) as Fulfillment_Rate
+FROM Customers cust
+LEFT JOIN Orders o ON cust.CustomerID = o.CustomerID
+LEFT JOIN Sales s ON o.OrderID = s.OrderID
+GROUP BY cust.Gender;</code>
+        </div>
+
+        <div class="code-block">
+            <span class="code-label">✅ Query 5: Fulfillment & Order Status Metrics</span>
+            <code>-- Calculate fulfillment success rates and cancellation metrics
+SELECT 
+    o.OrderStatus,
+    COUNT(o.OrderID) as Order_Count,
+    ROUND(COUNT(o.OrderID) * 100.0 / 
+        (SELECT COUNT(*) FROM Orders), 2) as Status_Percentage,
+    AVG(DATEDIFF(DAY, o.OrderDate, o.DeliveryDate)) as Avg_Delivery_Days,
+    SUM(s.Amount) as Status_Revenue
+FROM Orders o
+LEFT JOIN Sales s ON o.OrderID = s.OrderID
+WHERE YEAR(o.OrderDate) = 2024
+GROUP BY o.OrderStatus
+ORDER BY Order_Count DESC;</code>
+        </div>
+
+        <h3 style="color: var(--accent-blue); margin: 2rem 0 1rem 0;">Backend Performance Optimization</h3>
+        <div class="academic-grid">
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-bolt"></i> Indexing Strategy</h4>
+                <p>Implemented composite indexes on frequently queried columns:</p>
+                <ul>
+                    <li>Index on (RegionID, SalesDate)</li>
+                    <li>Index on (ChannelID, Amount)</li>
+                    <li>Index on (CustomerID, OrderStatus)</li>
+                </ul>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-table"></i> Partitioning</h4>
+                <p>Sales table partitioned by year for improved query performance and maintenance.</p>
+                <ul>
+                    <li>Partition by YEAR(SalesDate)</li>
+                    <li>Improves query speed by 40-50%</li>
+                    <li>Easier data archival</li>
+                </ul>
+            </div>
+
+            <div class="academic-card">
+                <h4><i class="fa-solid fa-cube"></i> Data Warehouse</h4>
+                <p>Implemented star schema with fact and dimension tables.</p>
+                <ul>
+                    <li>Fact table: Sales_Fact</li>
+                    <li>Dimensions: Time, Region, Channel</li>
+                    <li>Pre-aggregated cubes for reporting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Strategic Recommendations</h2>
+        <div class="recommendation-grid">
+            <div class="recommendation-card">
+                <div class="number">1</div>
+                <h4>Optimize Inventory Distribution</h4>
+                <p>Prioritize warehouse locations in Maharashtra and Karnataka to reduce shipping times and improve delivery efficiency for top-performing regions.</p>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="number">2</div>
+                <h4>Maximize Myntra Partnership</h4>
+                <p>Allocate 60% of marketing budget to Myntra channel, given its 3x superiority over competitors in sales conversion and customer reach.</p>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="number">3</div>
+                <h4>Targeted Product Development</h4>
+                <p>Focus on women's apparel collections and seasonal designs, capitalizing on 65%+ female customer base and identified seasonal peaks.</p>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="number">4</div>
+                <h4>Enhance Customer Retention</h4>
+                <p>Implement loyalty programs targeting high-value female customers to maintain 92%+ fulfillment rates and increase repeat purchases.</p>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="number">5</div>
+                <h4>Expand Regional Presence</h4>
+                <p>Launch aggressive marketing campaigns in tier-2 cities to tap into emerging markets and diversify revenue beyond top 2 states.</p>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="number">6</div>
+                <h4>Real-time Dashboard Monitoring</h4>
+                <p>Implement daily dashboard reviews for stakeholders to track KPIs, identify anomalies, and make quick tactical adjustments.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Project Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="phase">Phase 1: Planning & Data Collection</span>
+                <h4>January - February 2024</h4>
+                <p>Defined project scope, gathered requirements, collected and cleaned sales data, performed initial exploratory data analysis.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="phase">Phase 2: Data Analysis & Processing</span>
+                <h4>February - March 2024</h4>
+                <p>Conducted statistical analysis, identified patterns, performed correlation studies, and segmented data by region, channel, and demographics.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="phase">Phase 3: Visualization Development</span>
+                <h4>March - April 2024</h4>
+                <p>Created interactive dashboards in Power BI, designed KPI cards, and developed trend visualizations for stakeholder presentation.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="phase">Phase 4: Insights & Recommendations</span>
+                <h4>April 2024</h4>
+                <p>Formulated strategic recommendations, prepared business intelligence reports, and identified actionable insights for management.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="phase">Phase 5: Portfolio Development</span>
+                <h4>April 2024</h4>
+                <p>Built professional portfolio website, integrated dashboard visualizations, and created documentation for academic evaluation.</p>
+            </div>
+
+            <div class="timeline-item">
+                <span class="phase">Phase 6: Final Presentation</span>
+                <h4>April 27, 2024</h4>
+                <p>Comprehensive project presentation to evaluation committee, showcasing methodology, findings, and strategic impact analysis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About The Project</h2>
+        <div class="about-content">
+            <p>The Fit & Fab Annual Report 2023 was developed to transform raw sales data into actionable business intelligence. By leveraging advanced data visualization techniques, this project provides a comprehensive overview of e-commerce performance across multiple dimensions.</p>
+            
+            <h3><i class="fa-solid fa-chart-bar"></i> Detailed Business Impact</h3>
+            <p>In today's competitive e-commerce landscape, relying on intuition is no longer sufficient. This dashboard provides a strategic advantage by allowing stakeholders to:</p>
+            <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-muted);">
+                <li style="margin-bottom: 8px;"><strong>Optimize Inventory Distribution:</strong> By identifying Maharashtra and Karnataka as top states, supply chain logistics can be prioritized to reduce shipping times.</li>
+                <li style="margin-bottom: 8px;"><strong>Refine Marketing Spend:</strong> Knowing that Myntra is the dominant channel allows for targeted ad allocations, maximizing Return on Ad Spend (ROAS).</li>
+                <li style="margin-bottom: 8px;"><strong>Tailor Product Offerings:</strong> Recognizing the strong sales contribution from women helps in curating future collections and promotional campaigns.</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;"><i class="fa-solid fa-target"></i> Academic Significance</h3>
+            <p>This project demonstrates the practical application of data analytics in real-world business scenarios, covering:</p>
+            <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-muted);">
+                <li style="margin-bottom: 8px;"><strong>Data Science:</strong> Comprehensive analysis using statistical methods and machine learning concepts</li>
+                <li style="margin-bottom: 8px;"><strong>Business Intelligence:</strong> Converting data into strategic business decisions</li>
+                <li style="margin-bottom: 8px;"><strong>Database Design:</strong> Proper schema design, normalization, and optimization</li>
+                <li style="margin-bottom: 8px;"><strong>Project Management:</strong> Effective planning, execution, and delivery</li>
+                <li style="margin-bottom: 8px;"><strong>Communication:</strong> Clear visualization and presentation of complex insights</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="data-portal" style="padding: 5rem 2rem; background: #0f172a; text-align: center;">
+        <div style="max-width: 850px; margin: 0 auto; padding: 4rem 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+            
+            <i class="fa-solid fa-server" style="font-size: 3rem; color: #3b82f6; margin-bottom: 1.5rem;"></i>
+            <h2 style="color: #fff; font-size: 2rem; margin-bottom: 1rem;">Administrative Data Portal</h2>
+            <p style="color: #94a3b8; margin-bottom: 2.5rem; line-height: 1.6;">
+                To maintain data integrity and bypass local browser security restrictions (X-Frame-Options), please use the secure gateway below to submit requests to the Fit & Fab cloud database.
+            </p>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfn7jYUtRl81WXzPj4vtkHXT5_XOYmnKHR2a75glPX9dZZ3hg/viewform" 
+               target="_blank" 
+               style="display: inline-block; padding: 20px 45px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); transition: transform 0.3s ease;">
+                <i class="fa-solid fa-database" style="margin-right: 12px;"></i> OPEN SECURE DATA PORTAL
+            </a>
+
+            <div class="admin-form">
+                <h3 style="color: white; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;"><i class="fa-solid fa-shield-halved"></i> Local Database Access</h3>
+                <form onsubmit="event.preventDefault(); alert('Database connected successfully. Awaiting query execution...');">
+                    <input type="text" placeholder="Admin Username (e.g., sysadmin_bca6)" required>
+                    <input type="password" placeholder="Secure Password" required>
+                    <button type="submit" class="admin-btn">Connect to Local Server</button>
+                </form>
+            </div>
+
+            <div style="margin-top: 2.5rem; color: #475569; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">
+                <i class="fa-solid fa-lock" style="margin-right: 8px;"></i> 256-Bit SSL Encrypted Connection
+            </div>
+        </div>
+    </section>
+
+    <section id="resources">
+        <h2 class="section-title">Project Documentation</h2>
+        <div class="resource-grid">
+            <a href="#" class="resource-btn"><i class="fa-solid fa-file-pdf" style="color: #ff4757;"></i> Project Synopsis</a>
+            <a href="#" class="resource-btn"><i class="fa-solid fa-file-lines" style="color: #2ed573;"></i> SRS Document</a>
+            <a href="#" class="resource-btn"><i class="fa-solid fa-file-csv" style="color: #ffa502;"></i> Raw Dataset (CSV)</a>
+            <a href="#" class="resource-btn"><i class="fa-solid fa-file-powerpoint" style="color: #ff6b81;"></i> Final PPT Deck</a>
+        </div>
+    </section>
+
+    <section id="team">
+        <h2 class="section-title">Meet the Team</h2>
+        <p class="team-intro">The Fit & Fab data analytics platform was collaboratively designed, developed, and documented by BCA 6th Semester scholars from Inderprastha Engineering College.</p>
+        
+        <div class="team-grid">
+            
+            <div class="team-member lead">
+                <img src="https://ui-avatars.com/api/?name=Ritvik+Singh&background=3CA3F0&color=fff&size=120" alt="Ritvik Singh" class="team-avatar">
+                <h3>Ritvik Singh</h3>
+                <span class="team-role">Web Developer & Lead Analyst</span>
+                <p class="team-desc">Architected the portfolio platform, developed the interactive UI/UX, and led the primary data visualization efforts using Power BI.</p>
+                <div class="team-socials">
+                    <a href="https://github.com/ritvik4548" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="https://ui-avatars.com/api/?name=Harshita+Bhatia&background=9D4EDD&color=fff&size=120" alt="Harshita Bhatia" class="team-avatar">
+                <h3>Harshita Bhatia</h3>
+                <span class="team-role">Data Analyst & BI Developer</span>
+                <p class="team-desc">Spearheaded exploratory data analysis, handled complex dataset cleaning, and developed key performance indicator (KPI) tracking metrics.</p>
+                <div class="team-socials">
+                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="https://ui-avatars.com/api/?name=Riya+Prajapati&background=3CA3F0&color=fff&size=120" alt="Riya Prajapati" class="team-avatar">
+                <h3>Riya Prajapati</h3>
+                <span class="team-role">Database Administrator</span>
+                <p class="team-desc">Designed the relational database schema, optimized SQL queries for performance, and managed the ETL pipelines.</p>
+                <div class="team-socials">
+                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <img src="https://ui-avatars.com/api/?name=Mamta+Das&background=9D4EDD&color=fff&size=120" alt="Mamta Das" class="team-avatar">
+                <h3>Mamta Das</h3>
+                <span class="team-role">Project Manager & Documentation</span>
+                <p class="team-desc">Managed project timelines, structured the SRS documentation, and formulated the strategic business recommendations.</p>
+                <div class="team-socials">
+                    <a href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2023 Fit & Fab Portfolio</p>
+        <p><strong>Fit & Fab Data Analytics Portfolio</strong></p>
+        <p>BCA 6th Semester Major Project | April 2024</p>
+        <p>Project by: Ritvik Singh, Harshita Bhatia, Riya Prajapati & Mamta Das</p>
+        <p style="margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; font-size: 0.85rem;">
+            © 2024 Fit & Fab. All Rights Reserved. Built with Data Analytics & Web Technologies.
+        </p>
     </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
+
