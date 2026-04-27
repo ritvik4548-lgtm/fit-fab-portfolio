@@ -3,317 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fit & Fab Annual Report 2023 - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* CSS Variables for consistent theming */
-        :root {
-            --bg-gradient: linear-gradient(135deg, #2A1045 0%, #683070 50%, #2A84D2 100%);
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --card-border: rgba(255, 255, 255, 0.1);
-            --text-main: #f0f0f0;
-            --text-muted: #b3b3b3;
-            --accent-blue: #3CA3F0;
-            --accent-purple: #9D4EDD;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background: rgba(15, 5, 25, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
-
-        /* Section Formatting */
-        section {
-            padding: 5rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            font-weight: 600;
-            background: -webkit-linear-gradient(right, var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Hero / Business Impact (Home Page) */
-        .hero {
-            text-align: center;
-            padding: 6rem 5% 3rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .impact-highlight {
-            background: linear-gradient(145deg, rgba(60, 163, 240, 0.1), rgba(157, 78, 221, 0.1));
-            border-left: 4px solid var(--accent-blue);
-            padding: 2rem;
-            border-radius: 0 8px 8px 0;
-            margin: 2rem auto;
-            max-width: 800px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(4px);
-        }
-
-        .impact-highlight h2 {
-            margin-bottom: 1rem;
-            color: var(--accent-blue);
-            font-size: 1.5rem;
-        }
-
-        .impact-highlight p {
-            font-size: 1.1rem;
-            color: var(--text-main);
-        }
-
-        /* Dashboard Placeholder */
-        .dashboard-preview {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Key Insights Grid */
-        .insights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .insight-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .insight-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .insight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .insight-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .insight-icon {
-            font-size: 2.5rem;
-            color: var(--accent-blue);
-            margin-bottom: 1.5rem;
-        }
-
-        .insight-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .insight-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* About Section (Detailed Business Impact) */
-        .about-content {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .about-content h3 {
-            color: var(--accent-purple);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { gap: 1rem; }
-            section { padding: 3rem 5%; }
-        }
-    </style>
+    <title>Fit Fab Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <nav>
-        <a href="#" class="logo">Fit & Fab</a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#insights">Insights</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-    </nav>
-
-    <header id="home" class="hero">
-        <h1>Fit & Fab Annual Report 2023</h1>
-        <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">A Comprehensive Data Analytics Portfolio Project</p>
-        
-        <div class="impact-highlight">
-            <h2><i class="fa-solid fa-chart-line" style="margin-right: 10px;"></i>Business Impact</h2>
-            <p>This dashboard helps businesses identify top-performing regions, understand customer behavior, and optimize sales channels. It enables data-driven decision-making to improve sales performance, reduce order cancellations, and enhance customer targeting.</p>
-        </div>
+    <header>
+        <h1>Fit Fab Portfolio</h1>
+        <h2>Enhanced BCA Project Presentation</h2>
     </header>
-
-    <section id="dashboard">
-        <div class="dashboard-preview">
-            <h2 style="margin-bottom: 1rem;">Interactive Dashboard</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;"><img src="60714.jpeg" alt="Fit & Fab Sales View" style="width: 100%; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-<img src="60713.jpeg" alt="Fit & Fab Orders View" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-            </div>
+    <section id="academic-header">
+        <h3>Academic Header</h3>
+        <p>This section includes details about the academic background related to the BCA project.</p>
     </section>
-
-    <section id="insights">
-        <h2 class="section-title">Key Insights</h2>
-        <div class="insights-grid">
-            
-            <div class="insight-card">
-                <i class="fa-solid fa-map-location-dot insight-icon"></i>
-                <h3>Regional Leaders</h3>
-                <p>Maharashtra and Karnataka consistently generate the highest sales volume, serving as the primary geographic drivers for revenue.</p>
-            </div>
-
-            <div class="insight-card">
-                <i class="fa-solid fa-users insight-icon"></i>
-                <h3>Demographic Dominance</h3>
-                <p>Women contribute significantly more to total sales compared to men, indicating a strong product-market fit in the female apparel category.</p>
-            </div>
-
-            <div class="insight-card">
-                <i class="fa-solid fa-store insight-icon"></i>
-                <h3>Top Channel Performance</h3>
-                <p>Myntra emerges as the absolute top-performing sales channel, vastly outperforming other e-commerce platforms like Amazon and Flipkart.</p>
-            </div>
-
-            <div class="insight-card">
-                <i class="fa-solid fa-box-check insight-icon"></i>
-                <h3>Fulfillment Success</h3>
-                <p>The vast majority of orders are successfully delivered (over 92%), maintaining an exceptionally low cancellation and return rate.</p>
-            </div>
-
-            <div class="insight-card">
-                <i class="fa-solid fa-chart-area insight-icon"></i>
-                <h3>Seasonal Trends</h3>
-                <p>Sales exhibit consistent momentum throughout the year, with distinct volume peaks occurring in key purchasing months.</p>
-            </div>
-
-        </div>
+    <section id="methodology">
+        <h3>Methodology</h3>
+        <p>This section outlines the methodology used to conduct the project, including any research methods and strategies employed.</p>
     </section>
-
-    <section id="about">
-        <h2 class="section-title">About The Project</h2>
-        <div class="about-content">
-            <p>The Fit & Fab Annual Report 2023 was developed to transform raw sales data into actionable business intelligence. By leveraging advanced data visualization techniques, this project provides a comprehensive overview of e-commerce performance across multiple dimensions.</p>
-            
-            <h3>Detailed Business Impact</h3>
-            <p>In today's competitive e-commerce landscape, relying on intuition is no longer sufficient. This dashboard provides a strategic advantage by allowing stakeholders to:</p>
-            <ul style="margin-left: 20px; margin-top: 10px; color: var(--text-muted);">
-                <li style="margin-bottom: 8px;"><strong>Optimize Inventory Distribution:</strong> By identifying Maharashtra and Karnataka as top states, supply chain logistics can be prioritized to reduce shipping times.</li>
-                <li style="margin-bottom: 8px;"><strong>Refine Marketing Spend:</strong> Knowing that Myntra is the dominant channel allows for targeted ad allocations, maximizing Return on Ad Spend (ROAS).</li>
-                <li style="margin-bottom: 8px;"><strong>Tailor Product Offerings:</strong> Recognizing the strong sales contribution from women helps in curating future collections and promotional campaigns.</li>
-            </ul>
-        </div>
+    <section id="technology-stack">
+        <h3>Technology Stack</h3>
+        <p>This section provides an overview of the technologies used in the project, such as programming languages, frameworks, and tools.</p>
     </section>
-
-<section id="data-portal" style="padding: 5rem 2rem; background: #0f172a; text-align: center;">
-    <div style="max-width: 850px; margin: 0 auto; padding: 4rem 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); border-radius: 25px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
-        
-        <i class="fa-solid fa-server" style="font-size: 3rem; color: #3b82f6; margin-bottom: 1.5rem;"></i>
-        <h2 style="color: #fff; font-size: 2rem; margin-bottom: 1rem;">Administrative Data Portal</h2>
-        <p style="color: #94a3b8; margin-bottom: 2.5rem; line-height: 1.6;">
-            To maintain data integrity and bypass local browser security restrictions (X-Frame-Options), please use the secure gateway below to submit requests to the Fit & Fab cloud database.
-        </p>
-
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfn7jYUtRl81WXzPj4vtkHXT5_XOYmnKHR2a75glPX9dZZ3hg/viewform" 
-           target="_blank" 
-           style="display: inline-block; padding: 20px 45px; background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); transition: transform 0.3s ease;">
-            <i class="fa-solid fa-database" style="margin-right: 12px;"></i> OPEN SECURE DATA PORTAL
-        </a>
-
-        <div style="margin-top: 2.5rem; color: #475569; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;">
-            <i class="fa-solid fa-lock" style="margin-right: 8px;"></i> 256-Bit SSL Encrypted Connection
-        </div>
-    </div>
-</section>
-
+    <section id="data-sources">
+        <h3>Data Sources</h3>
+        <p>This section lists the data sources utilized for the project, including databases, APIs, and other resources.</p>
+    </section>
+    <section id="conclusions">
+        <h3>Conclusions</h3>
+        <p>This section presents the conclusions drawn from the project findings and any future work that could be considered.</p>
+    </section>
+    <footer>
+        <p>&copy; 2026 Ritvik4548-lgtm</p>
+    </footer>
 </body>
 </html>
